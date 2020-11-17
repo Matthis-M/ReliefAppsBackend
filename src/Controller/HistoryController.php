@@ -19,7 +19,7 @@ class HistoryController extends AbstractController
     public function addHistory(Request $request): Response
     {
         $requestData = json_decode($request->getContent());
-        $videoUrl = $requestData->test;
+        $videoUrl = $requestData->videoUrl;
 
         $entityManager = $this->getDoctrine()->getManager();
 

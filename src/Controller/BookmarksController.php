@@ -19,7 +19,7 @@ class BookmarksController extends AbstractController
     public function addBookmark(Request $request): Response
     {
         $requestData = json_decode($request->getContent());
-        $videoUrl = $requestData->test;
+        $videoUrl = $requestData->videoUrl;
 
         $entityManager = $this->getDoctrine()->getManager();
 
