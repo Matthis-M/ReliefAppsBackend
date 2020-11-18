@@ -14,7 +14,7 @@ class BookmarksController extends AbstractController
 {
 
     /**
-     * @Route("/bookmarks", methods="POST", name="addBookmark")
+     * @Route("/addBookmark", methods="POST", name="addBookmark")
      */
     public function addBookmark(Request $request): Response
     {
@@ -35,7 +35,7 @@ class BookmarksController extends AbstractController
     }
 
     /**
-     * @Route("/bookmarks", methods="GET", name="listBookmarks")
+     * @Route("/listBookmarks", methods="GET", name="listBookmarks")
      */
     public function getBookmarks(): JsonResponse
     {

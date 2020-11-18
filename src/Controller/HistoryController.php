@@ -14,7 +14,7 @@ class HistoryController extends AbstractController
 {
 
     /**
-     * @Route("/history", methods="POST", name="addHistory")
+     * @Route("/addHistory", methods="POST", name="addHistory")
      */
     public function addHistory(Request $request): Response
     {
@@ -35,7 +35,7 @@ class HistoryController extends AbstractController
     }
 
     /**
-     * @Route("/history", methods="GET", name="listHistory")
+     * @Route("/listHistory", methods="GET", name="listHistory")
      */
     public function getHistory(): JsonResponse
     {
