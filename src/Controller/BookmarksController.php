@@ -18,14 +18,15 @@ class BookmarksController extends AbstractController
      */
     public function addBookmark(Request $request): Response
     {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        // Fetch the URL of the video from the request's JSON body
         $requestData = json_decode($request->getContent());
         $videoUrl = $requestData->videoUrl;
 
-        $entityManager = $this->getDoctrine()->getManager();
-
+        // Instanciate a new Entity, set its videoUrl value and send the database query
         $bookmark = new Bookmark();
         $bookmark->setVideoUrl($videoUrl);
-
         $entityManager->persist($bookmark);
         $entityManager->flush();
 
@@ -39,6 +40,7 @@ class BookmarksController extends AbstractController
     {
         $entityManager = $this->getDoctrine()->getManager();
 
+        // Get the list of all bookmarks stored in the database
         $bookmarksList = $this->getDoctrine()
         ->getRepository(Bookmark::class)
         ->findAll();
@@ -49,6 +51,7 @@ class BookmarksController extends AbstractController
             array_push($urlsList, $bookmark->getVideoUrl());
         }
 
+        // Encode the list to send it as a JSON message
         $urlsList = json_encode($urlsList);
 
         return new JsonResponse($urlsList);
