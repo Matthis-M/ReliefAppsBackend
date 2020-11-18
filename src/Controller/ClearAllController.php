@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ClearAllController extends AbstractController
 {
     /**
-     * @Route("/clearall", name="clear_all")
+     * @Route("/clearAll", methods="GET", name="clearAll")
      */
     public function clearAll(): Response
     {
