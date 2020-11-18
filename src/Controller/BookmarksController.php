@@ -23,8 +23,6 @@ class BookmarksController extends AbstractController
 
         $entityManager = $this->getDoctrine()->getManager();
 
-        //TODO Url validation
-
         $bookmark = new Bookmark();
         $bookmark->setVideoUrl($videoUrl);
 

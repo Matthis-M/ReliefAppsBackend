@@ -23,8 +23,6 @@ class HistoryController extends AbstractController
 
         $entityManager = $this->getDoctrine()->getManager();
 
-        //TODO Url validation
-
         $history = new HistoryEntry();
         $history->setVideoUrl($videoUrl);
 
