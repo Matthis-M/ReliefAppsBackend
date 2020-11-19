@@ -1,8 +1,8 @@
-# ReliefAppsBackend
+## ReliefAppsBackend
 Symfony backend application exposing services for the following [Angular applications](https://github.com/Matthis-M/ReliefAppsFrontend)
 
 
-# Setup the Symfony application :
+## Setting up the Symfony application :
 
 1. Install Symfony CLI
 2. Check that your system includes the symfony requirements by using ```symfony check:requirement``` and install the missing ones 
