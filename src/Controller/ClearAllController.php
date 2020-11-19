@@ -21,6 +21,7 @@ class ClearAllController extends AbstractController
     {
         $entityManager = $this->getDoctrine()->getManager();
 
+        // Create two queries to delete every entry of both tables
         $query = $entityManager->createQuery(
             'DELETE FROM App\Entity\Bookmark WHERE 1=1'
         )->execute();

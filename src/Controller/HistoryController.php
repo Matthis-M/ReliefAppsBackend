@@ -18,14 +18,15 @@ class HistoryController extends AbstractController
      */
     public function addHistory(Request $request): Response
     {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        // Fetch the URL of the video from the request's JSON body
         $requestData = json_decode($request->getContent());
         $videoUrl = $requestData->videoUrl;
 
-        $entityManager = $this->getDoctrine()->getManager();
-
+        // Instanciate a new Entity, set its videoUrl value and send the database query
         $history = new HistoryEntry();
         $history->setVideoUrl($videoUrl);
-
         $entityManager->persist($history);
         $entityManager->flush();
 
@@ -39,6 +40,7 @@ class HistoryController extends AbstractController
     {
         $entityManager = $this->getDoctrine()->getManager();
 
+        // Get the complete history stored in the database
         $historyList = $this->getDoctrine()
         ->getRepository(HistoryEntry::class)
         ->findAll();
@@ -49,6 +51,7 @@ class HistoryController extends AbstractController
             array_push($urlsList, $history->getVideoUrl());
         }
 
+        // Encode the list to send it as a JSON message
         $urlsList = json_encode($urlsList);
 
         return new JsonResponse($urlsList);
